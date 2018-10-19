@@ -38,7 +38,7 @@ def peek(ind: int = 0):
 	"""
 	if len(my_st) == 0:
 		return print("My_stack is empty")
-	return my_st[- ind -1 ]
+	return my_st[- ind - 1]
 
 
 def clear() -> None:
