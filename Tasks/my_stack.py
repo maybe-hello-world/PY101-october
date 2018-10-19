@@ -1,7 +1,7 @@
 """
 My little Stack
 """
-
+items = []
 
 def push(elem) -> None:
 	"""
@@ -10,6 +10,7 @@ def push(elem) -> None:
 	:param elem: element to be pushed
 	:return: Nothing
 	"""
+	items.append(elem)
 	return None
 
 
@@ -19,8 +20,12 @@ def pop():
 
 	:return: popped element
 	"""
-	return None
 
+	global items
+	if items:
+		return items.pop()
+	else:
+		return None
 
 def peek(ind: int = 0):
 	"""
@@ -29,7 +34,7 @@ def peek(ind: int = 0):
 	:param ind: index of element (count from the top)
 	:return: peeked element
 	"""
-	return None
+	return items[len(items) - 1 - ind]
 
 
 def clear() -> None:
@@ -38,4 +43,6 @@ def clear() -> None:
 
 	:return: None
 	"""
+	global items
+	items = []
 	return None
