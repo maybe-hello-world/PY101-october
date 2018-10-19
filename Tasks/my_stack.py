@@ -1,7 +1,7 @@
 """
 My little Stack
 """
-
+my_st = []
 
 def push(elem) -> None:
 	"""
@@ -10,6 +10,8 @@ def push(elem) -> None:
 	:param elem: element to be pushed
 	:return: Nothing
 	"""
+	my_st.append(elem)
+	#return print("On stack! : ", my_st)
 	return None
 
 
@@ -19,7 +21,12 @@ def pop():
 
 	:return: popped element
 	"""
-	return None
+	if len(my_st) == 0:
+		return print("My_stack is empty")
+	returned = my_st[-1]
+	my_st.pop()
+	#return print("It returns > %s < from stack" % returned)
+	return returned
 
 
 def peek(ind: int = 0):
@@ -29,7 +36,9 @@ def peek(ind: int = 0):
 	:param ind: index of element (count from the top)
 	:return: peeked element
 	"""
-	return None
+	if len(my_st) == 0:
+		return print("My_stack is empty")
+	return my_st[- ind -1 ]
 
 
 def clear() -> None:
@@ -38,4 +47,5 @@ def clear() -> None:
 
 	:return: None
 	"""
+	my_st.clear()
 	return None
