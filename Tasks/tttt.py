@@ -5,7 +5,7 @@ Queue priorities are from 0 to 5
 """
 
 
-queue = {0: [], 1: [], 2: [], 3: [], 4: [], 5: []}
+queue = {0: [1,2,3,4], 1: [5,6,7,8,9], 2: [10,11,12], 3: [13], 4: [], 5: []}
 
 
 def enqueue(elem, priority: int = 0) -> None:
@@ -68,3 +68,12 @@ def clear() -> None:
         queue[iq] = []
 
     return None
+
+
+print(queue)
+
+while True:
+    v = dequeue()
+    print(v, queue)
+    if input("Exit - 0, Continue - Enter") == '0':
+        break
