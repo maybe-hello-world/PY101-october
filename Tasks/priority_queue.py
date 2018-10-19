@@ -5,7 +5,7 @@ Queue priorities are from 0 to 5
 """
 
 
-queue = {0: [], 1: [], 2: [], 3: [], 4: [], 5: []}
+queue = [][]
 
 
 def enqueue(elem, priority: int = 0) -> None:
@@ -18,8 +18,7 @@ def enqueue(elem, priority: int = 0) -> None:
 
     global queue
 
-    # queue[priority][:0] = [elem]
-    queue[priority].insert(0, elem)
+    queue[priority][:0] = [elem]
 
     return None
 
@@ -33,13 +32,11 @@ def dequeue():
 
     global queue
 
-    for iq in range(5):
-        if len(queue[iq]) == 0:
-            return None
+    if len(queue) == 0:
+        return None
 
-        res = queue[iq][len(queue[iq]) - 1]
-        queue[iq] = queue[iq][:-1]
-        return res
+    res = queue[len(queue) - 1]
+    queue = queue[:-1]
 
     return None
 
@@ -51,10 +48,7 @@ def peek(ind: int = 0, priority: int = 0):
     :param ind: index of element (count from the beginning)
     :return: peeked element
     """
-
-    # ret = queue[priority][len(queue[priority]) - 1 - ind]
-
-    return queue[priority][-1-ind]
+    return None
 
 
 def clear() -> None:
@@ -63,8 +57,4 @@ def clear() -> None:
 
     :return: None
     """
-
-    for iq in range(5):
-        queue[iq] = []
-
     return None
