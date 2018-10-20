@@ -23,8 +23,7 @@ def dequeue():
 	"""
 	if len(my_qu) == 0:
 		return print("My_stack is empty")
-	returned = my_qu[0]
-	my_qu.pop(0)
+	returned = my_qu.pop(0)
 	#return print("It returns > %s < from queue" % returned)
 	return returned
 
