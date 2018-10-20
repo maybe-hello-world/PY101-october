@@ -3,7 +3,7 @@ My little Stack
 """
 
 stack=[]
-def push(elem) -> None:
+def push(elem)-> None:
 	"""
 	Operation that add element to stack
 
@@ -38,7 +38,7 @@ def peek(ind: int = 0):
 	:param ind: index of element (count from the top)
 	:return: peeked element
 	"""
-	top=stack[-1+ind]
+	top=stack[-1-ind]
 	return top
 
 
