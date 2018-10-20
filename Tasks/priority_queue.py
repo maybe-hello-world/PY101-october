@@ -1,19 +1,18 @@
 """
-My little Queue
+Priority Queue
+
+Queue priorities are from 0 to 5
 """
 
-queue=[]
-def enqueue(elem) -> None:
+priorityqueue=[]
+def enqueue(elem, priority: int = 0) -> None:
 	"""
 	Operation that add element to the end of the queue
 
 	:param elem: element to be added
 	:return: Nothing
 	"""
-	queue.append(elem)
-	print(queue)
 	return None
-
 
 
 def dequeue():
@@ -22,25 +21,17 @@ def dequeue():
 
 	:return: dequeued element
 	"""
-	if queue != []:
-		head=queue[0]
-		queue.remove(queue[0])
-		print(queue)
-		return head
-	else:
-		print("Очередь пуста")
 	return None
 
 
-def peek(ind: int = 0):
+def peek(ind: int = 0, priority: int = 0):
 	"""
 	Allow you to see at the element in the queue without dequeuing it
 
 	:param ind: index of element (count from the beginning)
 	:return: peeked element
 	"""
-	head=queue[ind]
-	return head
+	return None
 
 
 def clear() -> None:
@@ -49,5 +40,5 @@ def clear() -> None:
 
 	:return: None
 	"""
-	del queue[:]
+	del priorityqueue[:]
 	return None
