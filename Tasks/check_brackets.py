@@ -1,9 +1,21 @@
+import Tasks.my_stack as my_stack
+
 def check_brackets(brackets_row: str) -> bool:
-	"""
-	Check whether input string is a valid bracket sequence
+    my_stack.clear()
+    for b in brackets_row:
+	    if b == '(':
+		    my_stack.push(b)
+	    elif b == ')':
+		    if not my_stack.pop():
+			    return False
+    if my_stack.pop():
+        return False
+    else:
+        return True
 
-	:param brackets_row: input string to be checked
-	:return: True if valid, False otherwise
-	"""
 
-	return False
+#print(check_brackets("(()))"))
+#print(check_brackets("(()("))
+#print(check_brackets("(()))"))
+#print(check_brackets("(()))"))
+
