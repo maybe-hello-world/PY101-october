@@ -4,7 +4,7 @@ Priority Queue
 Queue priorities are from 0 to 5
 """
 
-priorityqueue=[]
+priorityqueue=[[], [], [], [], [], []]
 def enqueue(elem, priority: int = 0) -> None:
 	"""
 	Operation that add element to the end of the queue
@@ -12,6 +12,7 @@ def enqueue(elem, priority: int = 0) -> None:
 	:param elem: element to be added
 	:return: Nothing
 	"""
+	priorityqueue[priority].insert(0,elem)
 	return None
 
 
@@ -21,6 +22,9 @@ def dequeue():
 
 	:return: dequeued element
 	"""
+	for i in range(6):
+		if priorityqueue[i]:
+			return priorityqueue[i].pop()
 	return None
 
 
@@ -31,7 +35,7 @@ def peek(ind: int = 0, priority: int = 0):
 	:param ind: index of element (count from the beginning)
 	:return: peeked element
 	"""
-	return None
+	return priorityqueue[priority][-1-ind]
 
 
 def clear() -> None:
@@ -40,5 +44,6 @@ def clear() -> None:
 
 	:return: None
 	"""
-	del priorityqueue[:]
+	for i in range(6):
+		priorityqueue[i]=[]
 	return None
