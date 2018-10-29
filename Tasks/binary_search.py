@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import numpy as np
 
 # arr = np.array([i for i in range(10)])
@@ -27,3 +28,15 @@ def binary_search(elem, arr, l=0, r=-1):
         return binary_search(elem, arr, l=mid + 1, r=r)
     else:
         return binary_search(elem, arr, l=l, r=mid - 1)
+=======
+def binary_search(elem, arr):
+	"""
+	Performs binary search of given element inside of array
+
+	:param elem: element to be found
+	:param arr: array where element is to be found
+	:return: Index of element if it's presented in the arr, None otherwise
+	"""
+
+	return None
+>>>>>>> 0a10cd6c85aa9486d3350e979e6bd177e77e78e6
