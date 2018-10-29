@@ -1,6 +1,7 @@
 """
 My little Queue
 """
+queue = []
 
 
 def enqueue(elem) -> None:
@@ -10,6 +11,7 @@ def enqueue(elem) -> None:
 	:param elem: element to be added
 	:return: Nothing
 	"""
+	queue.append(elem)
 	return None
 
 
@@ -19,7 +21,11 @@ def dequeue():
 
 	:return: dequeued element
 	"""
-	return None
+	if len(queue) > 0:
+		b = queue[0]
+		del queue[0]
+		return b
+	# return None
 
 
 def peek(ind: int = 0):
@@ -29,7 +35,8 @@ def peek(ind: int = 0):
 	:param ind: index of element (count from the beginning)
 	:return: peeked element
 	"""
-	return None
+	return queue[ind]
+	# return None
 
 
 def clear() -> None:
@@ -38,4 +45,6 @@ def clear() -> None:
 
 	:return: None
 	"""
-	return None
+	del queue[:]
+	return
+	# return None
