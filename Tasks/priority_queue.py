@@ -13,6 +13,7 @@ def enqueue(elem, priority: int = 0) -> None:
 	:param elem: element to be added
 	:return: Nothing
 	"""
+	"""
 	if priority == 0:
 		my_pri_qu[0].append(elem)
 	elif priority == 1:
@@ -25,7 +26,9 @@ def enqueue(elem, priority: int = 0) -> None:
 		my_pri_qu[4].append(elem)
 	elif priority == 5:
 		my_pri_qu[5].append(elem)
+	"""
 
+	my_pri_qu[priority].append(elem)
 	return None
 
 
