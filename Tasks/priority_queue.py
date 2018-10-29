@@ -27,8 +27,8 @@ def enqueue(elem, priority: int = 0) -> None:
 	elif priority == 5:
 		my_pri_qu[5].append(elem)
 	"""
-	if priority == 0:
-		my_pri_qu[priority].append(elem)
+
+	my_pri_qu[priority].append(elem)
 	return None
 
 
