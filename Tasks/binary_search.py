@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 import numpy as np
 
 # arr = np.array([i for i in range(10)])
 # arr = np.array([])
+arr = [i for i in range(100)] + [101]
 
 def binary_iter(elem, arr):
     l = 0
@@ -19,24 +19,15 @@ def binary_iter(elem, arr):
 def binary_search(elem, arr, l=0, r=-1):
     if r == -1:
         r = len(arr)
-    if l > r or elem < 0:return None
     # if elem not in arr: #decrease from O(logn) to O(nlogn), bad idea use it
     #     return None
-    mid = (l + r) // 2
-    if mid == elem: return mid
-    if arr[mid] < elem:
-        return binary_search(elem, arr, l=mid + 1, r=r)
+    if l > r or elem < 0:
+            return None
     else:
-        return binary_search(elem, arr, l=l, r=mid - 1)
-=======
-def binary_search(elem, arr):
-	"""
-	Performs binary search of given element inside of array
-
-	:param elem: element to be found
-	:param arr: array where element is to be found
-	:return: Index of element if it's presented in the arr, None otherwise
-	"""
-
-	return None
->>>>>>> 0a10cd6c85aa9486d3350e979e6bd177e77e78e6
+        mid = (l + r) // 2
+        if mid == elem:
+            return mid
+        if arr[mid] < elem:
+            return binary_search(elem, arr, l = mid + 1, r=r)
+        else:
+            return binary_search(elem, arr, l=l, r = mid - 1)
