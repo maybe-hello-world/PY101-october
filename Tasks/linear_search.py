@@ -1,6 +1,9 @@
 """
 This module implements some functions based on linear search algo
 """
+import networkx as nx
+import Tasks.my_queue as que
+
 
 
 def min_search(arr) -> int:
@@ -27,7 +30,8 @@ def min_weight_search(Graph) -> tuple:
 	:return: tuple of nodes (node, node) the weight of edge between which is minimal (any occurrence)
 	"""
 
+
+
+
 	return None, None
 
-arr = [i for i in range(10)]
-print(min_search(arr))
