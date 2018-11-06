@@ -10,8 +10,11 @@ def min_search(arr) -> int:
 	:param arr: Array containing numbers
 	:return: index of first occurrence of minimal element in array
 	"""
-
-	return -1
+	min = arr[0]
+	for i in range(1,len(arr)):
+		if arr[i] < min:
+			min = arr[i]
+	return min
 
 
 def min_weight_search(Graph) -> tuple:
@@ -21,5 +24,6 @@ def min_weight_search(Graph) -> tuple:
 	:param Graph: NetworkX Graph (or digraph) with weighted edges
 	:return: tuple of nodes (node, node) the weight of edge between which is minimal (any occurrence)
 	"""
+
 
 	return None, None
