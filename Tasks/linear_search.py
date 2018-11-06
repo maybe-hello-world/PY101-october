@@ -4,14 +4,19 @@ This module implements some functions based on linear search algo
 
 
 def min_search(arr) -> int:
-	"""
-	Function that find minimal element in array
+    """
+    Function that find minimal element in array
 
-	:param arr: Array containing numbers
-	:return: index of first occurrence of minimal element in array
-	"""
-
-	return -1
+    :param arr: Array containing numbers
+    :return: index of first occurrence of minimal element in array
+    """
+    my_min = arr[0]
+    for i in arr:
+        if i <= my_min:
+            my_min = i
+        else:
+            continue
+    return my_min
 
 
 def min_weight_search(Graph) -> tuple:
@@ -23,3 +28,6 @@ def min_weight_search(Graph) -> tuple:
 	"""
 
 	return None, None
+
+arr = [i for i in range(10)]
+print(min_search(arr))
