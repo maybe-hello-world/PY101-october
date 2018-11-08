@@ -1,38 +1,32 @@
 import networkx as nx
 
-visited = []
-
-infx = float("inf")
-nodes = {'a': infx, 'b': infx, 'c': infx, 'd': infx, 'e': infx}
-
-G = nx.DiGraph()
-G.add_nodes_from(nodes.keys())  # nodes
-G.add_weighted_edges_from([('a', 'd', 60), ('a', 'c', 12),
-                           ('b', 'a', 10),
-                           ('c', 'd', 32), ('c', 'b', 20),
-                           ('e', 'a', 7)])
-
-def getmincostnode():
-
-    nodewtmin = None
-    wtmin = infx
-    for x in nodes.items():
-        if (x[1] < wtmin) and (x[0] not in visited):
-            wtmin = x[1]
-            nodewtmin = x[0]
-
-    return nodewtmin
-
-
-def run(node='a', endnode = None):
+def dijkstra_algo(G, starting_node) -> dict:
     """
-        node : начальная вершина
-        endnode : конечная вершина; если не задана (None), то получаем стоимость до каждой
+    Count shortest paths from starting node to all nodes of graph G
 
+    :param G: Graph from NetworkX
+    :param starting_node: starting node from G
+    :return: dict like {'node1': 0, 'node2': 10, '3': 33, ...}, where nodes are nodes from G
     """
+    visited = []
+    nodes = dict(G.nodes)
+    for v in nodes:
+        nodes[v] = float("inf")
+
+    def getmincostnode():
+        nodewtmin = None
+        wtmin = float("inf")
+        for x in nodes.items():
+            if (x[1] < wtmin) and (x[0] not in visited):
+                wtmin = x[1]
+                nodewtmin = x[0]
+        return nodewtmin
+
+    node = starting_node
+    endnode = None
+
     nodes[node] = 0
-
-    while node!= endnode:
+    while node != endnode:
         visited.append(node)
         for nbr in G.neighbors(node):
             wt = G[node][nbr]['weight']
@@ -40,15 +34,10 @@ def run(node='a', endnode = None):
             if nodes[nbr] > newcost:
                 nodes[nbr] = newcost
         node = getmincostnode()
-
     else:
         if node != None:
             visited.append(node)
 
-    return visited
-
-run()
-# run('e')
-# run('e', 'c')
-print("nodes", nodes)
-print("visited", visited)
+    # print("visited", visited)
+    # print("nodes", nodes)
+    return nodes
