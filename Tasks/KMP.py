@@ -74,7 +74,7 @@ def KMP_algo(inp_string: str, substr: str):
 			# print("Подстрока найдена!", i - j)
 			initf = True
 
-			return i - j
+			return i - j  # если закомментировать этот return, то будет искать последующие вхождеия
 
 		if initf:
 			i += 1
