@@ -1,7 +1,7 @@
 """
 This module implements some functions based on linear search algo
 """
-
+import networkx as nx
 
 def min_search(arr) -> int:
 	"""
@@ -17,13 +17,20 @@ def min_search(arr) -> int:
 	return min
 
 
-def min_weight_search(Graph) -> tuple:
+def min_weight_search(Graph:nx.Graph) -> tuple:
 	"""
 	Function that find edge in graph with minimal weight of all
 
 	:param Graph: NetworkX Graph (or digraph) with weighted edges
 	:return: tuple of nodes (node, node) the weight of edge between which is minimal (any occurrence)
 	"""
+	key = list()
+	weight = float('0')
+	for (u, v) in Graph.edges:
+		if Graph[u][v]['weight'] <= weight:
+			weight = Graph[u][v]['weight']
+	for (u, v) in Graph.edges:
+		if Graph[u][v]['weight'] == weight:
+			key.append((u, v))
 
-
-	return None, None
+	return tuple(key)

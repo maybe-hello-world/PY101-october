@@ -28,5 +28,3 @@ def dijkstra_algo(G, starting_node) -> dict:
 				stoimost[i] = stoimost[miv] + G[miv][i]['weight']
 		visited.append(miv)
 	return stoimost
-
-	# return dict()
