@@ -15,6 +15,7 @@ def KMP_algo(inp_string: str, substr: str):
 		:return: prefix values table
 		"""
 
+
 		f = []
 
 		for i in range(len(prefix_str)):
