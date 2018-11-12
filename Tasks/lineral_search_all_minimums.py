@@ -50,13 +50,17 @@ def min_weight_search(Graph):
     :param Graph: NetworkX Graph (or digraph) with weighted edges
     :return: tuple of nodes (node, node) the weight of edge between which is minimal (any occurrence)
     """
+    result = []
     my_min = Graph.get_edge_data(*list(Graph.edges)[0])['weight']
     for gr in Graph.edges:
         my_cost = int(Graph.get_edge_data(*gr)['weight'])
-        if my_cost < my_min:
+        if my_cost <= my_min:
+            my_prev_min = my_min
             my_min = my_cost
-            res = gr
+            result.append(gr)
+            if my_min < my_prev_min:
+                result.remove(result[0])
 
-    return res
+    return result
 
 print(min_weight_search(G))
