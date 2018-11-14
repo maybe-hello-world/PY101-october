@@ -1,9 +1,10 @@
 import networkx as nx
+import Tasks.my_queue as que
 
-g = nx.Graph()
+G = nx.Graph()
 
 nodes = list("ABCDEFG")
-g.add_nodes_from(nodes)
+G.add_nodes_from(nodes)
 
 edges = [
     ('A', 'B'),
@@ -13,47 +14,27 @@ edges = [
 
 ]
 
-g.add_edges_from(edges)
+G.add_edges_from(edges)
 
+slist = []
+prev_slist = []
+my_con = 0
 
-# def count_sv(g:nx.Graph):
-#     return len(g.nodes) % len(g.edges)
+for i in G.nodes:
+    visited_list = [i]
+    que.enqueue(i)
 
-
-# merged = 0
-# nei_list = []
-# visited_list = []
-#
-# def add_nei(x):
-#     nei_list.append(x)
-#     for i in g.neighbors(x):
-#         nei_list.append(i)
-#     return
-#
-# # for x in g.nodes:
-# #     if any(g.neighbors(x)) == False:
-# #         merged += 1
-# #
-# #     # if x not in visited_list:
-# #     #     if x not in nei_list:
-# #     #         add_nei(x)
-# #     #     else:
-# #     #         merged +=1
-# #     #         nei_list.clear()
-# #     #     visited_list.append(x)
-# #     else:
-# #         nei_list.append(x)
-# #         for i in g.neighbors(x):
-# #             nei_list.append(i)
-# #         for y in range(1,len(nei_list)):
-# #             if y not in
-# #
-# #
-# #
-# #
-# #
-# # print(merged)
-# # print(nei_list)
-# # print(visited_list)
-
-#x =
+    while que.len_que() > 0:
+           verch = que.dequeue()
+           for i in G.neighbors(verch):
+               if i not in visited_list:
+                   visited_list.append(i)
+                   que.enqueue(i)
+    slist = sorted(visited_list)
+    #print(slist)
+    if slist != prev_slist:
+        my_con += 1
+        prev_slist = slist
+    else:
+        continue
+print(my_con)
