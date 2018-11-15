@@ -1,7 +1,7 @@
 text = ['ATTA',
-        'АCTA',
-        'АGCA',
-        'ACAA']
+        'ACTA',
+        'AGCA',
+        'ACAA',]
 
 def common_letter(sl:list):
     """
@@ -10,6 +10,7 @@ def common_letter(sl:list):
     """
     com = None
     di = {}
+    di_sorted = {}
     for i in sl:
         if i in di.keys():
             di[i] += 1
@@ -18,29 +19,25 @@ def common_letter(sl:list):
 
     m = max(di.values())
 
-    for i, j in di.items():
+    for k in sorted(di.keys(),reverse=True):
+        di_sorted[k] = di[k]
+
+    for i, j in di_sorted.items():
         if j == m:
             com = i
-
     return com
+
 
 def get_pos_str(text:list):
     res =[]
-    for i in range(0,len(text)):
-        st = [x[i] for x in text]
-        res.append(common_letter(st))
+    j = 0
+    for i in range(len(text)):
+        while j < len(text[i]):
+            st = [x[j] for x in text]
+            j+=1
+            res.append(common_letter(st))
     return res
 
 
-
-
 print(get_pos_str(text))
-
-
-
-
-
-
-
-
 

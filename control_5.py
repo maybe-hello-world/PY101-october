@@ -20,10 +20,10 @@ slist = []
 prev_slist = []
 my_con = 0
 
+
 for i in G.nodes:
     visited_list = [i]
     que.enqueue(i)
-
     while que.len_que() > 0:
            verch = que.dequeue()
            for i in G.neighbors(verch):
@@ -32,9 +32,10 @@ for i in G.nodes:
                    que.enqueue(i)
     slist = sorted(visited_list)
     #print(slist)
-    if slist != prev_slist:
+    if slist not in prev_slist:
         my_con += 1
-        prev_slist = slist
+        prev_slist.append(slist)
+        #print(prev_slist)
     else:
         continue
 print(my_con)
