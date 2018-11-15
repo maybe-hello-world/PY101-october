@@ -48,3 +48,7 @@ def clear() -> None:
 	"""
 	my_qu.clear()
 	return None
+
+def len_que():
+	return len(my_qu)
+

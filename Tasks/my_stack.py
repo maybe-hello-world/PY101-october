@@ -49,3 +49,6 @@ def clear() -> None:
 	"""
 	my_st.clear()
 	return None
+
+def len_stack():
+	return len(my_st)
